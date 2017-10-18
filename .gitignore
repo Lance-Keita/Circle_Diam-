@@ -1,7 +1,34 @@
-.DS_Store
-applet
-application.linux32
-application.linux64
-application.windows32
-application.windows64
-application.macosx
+//global variable :
+float x = 50; //declaring a variable which will be used for moving shapes on x axis
+float circleDiam = 300;
+float y = 355;
+float z = 250;
+
+//to setup and change size of canvas:
+void setup() {
+  size(500, 500); //sets the (width, height)
+  background(102, 153, 153); // uses (R, G, B) colors to set background color of canvas
+   //this is a local scope variable only known within this function
+  strokeWeight(10);
+  frameRate(50);
+}
+//to draw components in canvas
+void draw() {
+  ellipse(250, 250, circleDiam, circleDiam); //draws a circle (x-coordinate, y-coordinate, width, height)
+  fill(0, z, 51); //adds red color
+  x=x+1; 
+  y=y+1; 
+  z+=1;
+ circleDiam = circleDiam -2;
+ 
+ //circleDiam -= 1; ----shorthand-----
+  line(z, z, y, y); //draws a line from the center of ellipse (x1, y1, x2, y2) 
+  rect(150, 150, 100, 100, x); //sets (x, y, width, height) for drawing a rectangle 
+  //rectangle will overlap ellipse cuz its second in command
+  //rectangle and line will move on x-axis at a rate of 1 frame per second
+  stroke(0, x, 150); //gives a light blue outline on all three shapes;
+}
+
+//if(circleDiam > 50 = true); {
+//   circleDiam-=2;
+// }
